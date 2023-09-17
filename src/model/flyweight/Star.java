@@ -3,10 +3,10 @@ import javax.swing.*;
 
 public class Star {
     private StarFlyweight starFlyweight;  // Características intrínsecas compartidas
-    private double latitude;  // Características extrínsecas únicas
-    private double longitude;
+    private int latitude;  // Características extrínsecas únicas
+    private int longitude;
 
-    public Star(StarFlyweight starFlyweight, double latitude, double longitude) {
+    public Star(StarFlyweight starFlyweight, int latitude, int longitude) {
         this.starFlyweight = starFlyweight;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -16,16 +16,16 @@ public class Star {
         return starFlyweight;
     }
 
-    public void setCoordinates(double latitude, double longitude) {
+    public void setCoordinates(int latitude, int longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public double getLatitude() {
+    public int getLatitude() {
         return latitude;
     }
 
-    public double getLongitude() {
+    public int getLongitude() {
         return longitude;
     }
 

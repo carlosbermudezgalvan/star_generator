@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanoramicView extends JFrame {
+    private JPanel blackPanel; // Declara blackPanel como un atributo de clase
+
+
     public PanoramicView() {
         initializeWindow();
         createMainPanel();
@@ -28,15 +31,16 @@ public class PanoramicView extends JFrame {
 
     private void createBlackPanel(JPanel mainPanel) {
         // Panel para el área negra
-        JPanel blackPanel = new JPanel();
+        blackPanel = new JPanel();
         blackPanel.setBackground(Color.BLACK); // Cambia el fondo según tus necesidades
         mainPanel.add(blackPanel, BorderLayout.CENTER);
     }
 
+
     private void createButtonPanel(JPanel mainPanel) {
         // Panel para los botones en la parte inferior
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // Establecer espacios horizontal y vertical a 0
-        buttonPanel.setBackground(Color.BLACK);
+        buttonPanel.setBackground(Color.WHITE);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         JButton btnArriba = createButton("\u2191");
@@ -66,7 +70,9 @@ public class PanoramicView extends JFrame {
 
         return button;
     }
-
+    public JPanel getBlackPanel() {
+        return blackPanel; // Método para obtener el panel negro desde otras partes del código
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
