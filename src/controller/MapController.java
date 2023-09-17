@@ -9,14 +9,14 @@ import java.util.List;
 
 public class MapController {
     private PanoramicView view; // Haz que el controlador tenga una referencia a tu vista
-    private List<Star> stars; // Lista de estrellas a mostrar
+    public List<Star> stars; // Lista de estrellas a mostrar
 
     public MapController(PanoramicView view) {
         this.view = view;
         this.stars = new ArrayList<>(); // Inicializa la lista de estrellas
     }
 
-    public void addStar(Star star, int x, int y) {
+    public void addStar(Star star) {
         // Agregar la estrella a la lista
         stars.add(star);
 
@@ -27,7 +27,7 @@ public class MapController {
         JLabel starLabel = star.getLabel();
 
         // Establecer la ubicación del JLabel en el panel negro
-        starLabel.setBounds(x, y, starLabel.getPreferredSize().width, starLabel.getPreferredSize().height);
+        starLabel.setBounds(star.getLongitude(), star.getLatitude(), starLabel.getPreferredSize().width, starLabel.getPreferredSize().height);
 
         // Agregar el JLabel al panel negro
         blackPanel.add(starLabel);

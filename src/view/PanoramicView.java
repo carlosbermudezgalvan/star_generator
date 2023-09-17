@@ -33,6 +33,7 @@ public class PanoramicView extends JFrame {
         // Panel para el área negra
         blackPanel = new JPanel();
         blackPanel.setBackground(Color.BLACK); // Cambia el fondo según tus necesidades
+        blackPanel.setLayout(null);
         mainPanel.add(blackPanel, BorderLayout.CENTER);
     }
 

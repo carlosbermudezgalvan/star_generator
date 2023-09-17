@@ -1,19 +1,22 @@
+import controller.MapController;
 import model.flyweight.Star;
 import model.flyweight.StarFlyweight;
 import model.notflyweight.StarNoFlyweight;
+import view.PanoramicView;
 
 public class Launcher {
     public static void main(String[] args) {
         String examplePath = "star1";
         StarFlyweight sf = new StarFlyweight(examplePath);
 
-        Star star = new Star(sf,1,0);
-        Star star2 = new Star(sf,2,0);
-        Star star3 = new Star(sf,3,0);
+        Star star = new Star(sf,0,0);
+        Star star2 = new Star(sf,20,20);
+        Star star3 = new Star(sf,0,0);
 
         System.out.println(star.getLatitude());
         System.out.println(star2.getLatitude());
         System.out.println(star3.getLatitude());
+
         // comprobando que se está usando el mismo objeto/recurso (star flyweight)
         System.out.println("HashCode de StarFlyweight: " + sf.hashCode());
         System.out.println("HashCode de star: " + star.getLabel().hashCode());
@@ -31,6 +34,24 @@ public class Launcher {
 
         // Parece que se cumple el objetivo, con flyweight se usa el mismo label
         // mientras que sin flyweight aunque sea el mismo iconPath , crea siempre distintos labels
+
+        // Crear la vista
+        PanoramicView view = new PanoramicView();
+
+        // Crear el controlador y pasar la vista
+        MapController controller = new MapController(view);
+
+        // Crear algunas estrellas y agregarlas al controlador
+        controller.addStar(star);
+        controller.addStar(star2);
+        controller.addStar(star3);
+
+        System.out.println(controller.stars.size()); // Para debug - prueba, eliminar al finalizar
+        // Pintar las estrellas en la vista
+        controller.paintStars();
+
+        // Mostrar la vista
+        view.setVisible(true);
 
 
     }
