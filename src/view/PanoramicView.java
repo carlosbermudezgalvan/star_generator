@@ -36,6 +36,7 @@ public class PanoramicView extends JFrame {
     private void createButtonPanel(JPanel mainPanel) {
         // Panel para los botones en la parte inferior
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0)); // Establecer espacios horizontal y vertical a 0
+        buttonPanel.setBackground(Color.BLACK);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         JButton btnArriba = createButton("\u2191");
@@ -50,17 +51,18 @@ public class PanoramicView extends JFrame {
     }
 
     private JButton createButton(String text) {
-        Font buttonFont = new Font("Arial", Font.PLAIN, 30); // Cambia "Arial" y 24 al tamaño deseado
-
         // Crear botones con fondo blanco y texto negro
         JButton button = new JButton(text);
         button.setBackground(Color.WHITE);
         button.setForeground(Color.BLACK);
 
+        Font buttonFont = new Font("Arial", Font.PLAIN, 28); // Cambia "Arial" y 24 al tamaño deseado
         button.setFont(buttonFont); // Establecer la fuente personalizada
+        button.setFocusPainted(false); // Desactivar el efecto de enfoque
+        button.setBorder(BorderFactory.createLineBorder(Color.WHITE)); // Establecer un borde personalizado (rojo)
 
         // Establecer el tamaño del botón
-        button.setPreferredSize(new Dimension(70, 50)); // Cambia el tamaño según tus necesidades
+        button.setPreferredSize(new Dimension(65, 40)); // Cambia el tamaño según tus necesidades
 
         return button;
     }
