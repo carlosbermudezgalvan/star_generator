@@ -15,6 +15,8 @@ public class Launcher {
         // Crear el controlador y pasar la vista
         MapController controller = new MapController(view);
 
+
+
         // Crear una lista de StarFlyweights con diferentes imágenes
         List<StarFlyweight> starFlyweights = new ArrayList<>();
         starFlyweights.add(new StarFlyweight("pictures/starw.png"));
@@ -65,4 +67,5 @@ public class Launcher {
         // Mostrar la vista
         view.setVisible(true);
     }
+
 }

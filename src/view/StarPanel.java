@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StarPanel extends JPanel {
-    private List<Star> stars; // Lista de estrellas a mostrar
+    public List<Star> stars; // Lista de estrellas a mostrar
 
     public StarPanel() {
         this.stars = new ArrayList<>();

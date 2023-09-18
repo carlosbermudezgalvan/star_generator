@@ -1,5 +1,7 @@
 package stargenerator.noflyweight;
 
+import controller.MapController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -46,6 +48,19 @@ public class PanoramicViewNoFlyweight extends JFrame {
         JButton btnAbajo = createButton("\u2193");
         JButton btnIzquierda = createButton("\u2190");
         JButton btnDerecha = createButton("\u2192");
+
+        // Agregar nombres de comando a los botones
+        btnArriba.setActionCommand("Arriba");
+        btnAbajo.setActionCommand("Abajo");
+        btnIzquierda.setActionCommand("Izquierda");
+        btnDerecha.setActionCommand("Derecha");
+
+        // Agregar el controlador como oyente de eventos a los botones
+        MapControllerNoFlyweight controller = new MapControllerNoFlyweight(this);
+        btnArriba.addActionListener(controller);
+        btnAbajo.addActionListener(controller);
+        btnIzquierda.addActionListener(controller);
+        btnDerecha.addActionListener(controller);
 
         buttonPanel.add(btnArriba);
         buttonPanel.add(btnAbajo);
