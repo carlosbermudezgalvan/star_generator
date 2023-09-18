@@ -1,12 +1,12 @@
-package view;
+package stargenerator.noflyweight;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class PanoramicView extends JFrame {
-    private StarPanel starPanel; // Usaremos un nuevo panel personalizado
+public class PanoramicViewNoFlyweight extends JFrame {
+    private StarPanelNoFlyweight starPanel; // Usaremos un nuevo panel personalizado
 
-    public PanoramicView() {
+    public PanoramicViewNoFlyweight() {
         initializeWindow();
         createMainPanel();
     }
@@ -30,7 +30,7 @@ public class PanoramicView extends JFrame {
 
     private void createStarPanel(JPanel mainPanel) {
         // Panel para mostrar las estrellas
-        starPanel = new StarPanel();
+        starPanel = new StarPanelNoFlyweight();
         starPanel.setBackground(Color.black);
         starPanel.setLayout(null);
         mainPanel.add(starPanel, BorderLayout.CENTER);
@@ -70,13 +70,13 @@ public class PanoramicView extends JFrame {
         return button;
     }
 
-    public StarPanel getStarPanel() {
+    public StarPanelNoFlyweight getStarPanel() {
         return starPanel; // Método para obtener el panel de estrellas desde otras partes del código
     }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            PanoramicView view = new PanoramicView();
+            PanoramicViewNoFlyweight view = new PanoramicViewNoFlyweight();
             view.setVisible(true);
         });
     }

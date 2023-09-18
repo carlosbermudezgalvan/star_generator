@@ -2,8 +2,8 @@ package model.flyweight;
 import javax.swing.*;
 
 public class Star {
-    private StarFlyweight starFlyweight;  // Características intrínsecas compartidas
-    private int latitude;  // Características extrínsecas únicas
+    private StarFlyweight starFlyweight;
+    private int latitude;
     private int longitude;
 
     public Star(StarFlyweight starFlyweight, int latitude, int longitude) {
@@ -30,7 +30,8 @@ public class Star {
     }
 
     public JLabel getLabel() {
-        return starFlyweight.getLabel();
+        JLabel label = new JLabel(starFlyweight.getIcon()); // Crea un nuevo JLabel con el icono
+        label.setBounds(longitude, latitude, starFlyweight.getIcon().getIconWidth(), starFlyweight.getIcon().getIconHeight());
+        return label;
     }
-
 }
